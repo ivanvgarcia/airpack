@@ -13,9 +13,7 @@ const Hero = styled.div`
 `;
 
 const Title = styled.h2`
-  max-width: 450px;
-  text-align: center;
-  font-weight: 300;
+  padding: 0 100px;
   text-align: center;
 `;
 
@@ -37,7 +35,8 @@ const Border = styled.section`
 const Home = () => (
   <>
     <Head>
-      <title>Home</title>
+      <title>Airpack</title>
+      <description></description>
     </Head>
 
     <Nav />
