@@ -27,10 +27,16 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Border = styled.section`
+const Section = styled.section`
   border-bottom: 5px dashed turquoise;
   min-height: 50vh;
 `;
+
+const Card = styled.div``;
+
+const CardTitle = styled.h4``;
+
+const CardImage = styled.img``;
 
 const Home = () => (
   <>
@@ -47,9 +53,25 @@ const Home = () => (
       </Title>
       <Button>See Packs</Button>
     </Hero>
-    <Border>
+    <Section>
       <Title>How does it work?</Title>
-    </Border>
+      <div>
+        <Card>
+          <CardTitle>1. Select the perfect Airpack</CardTitle>
+          <CardImage src="https://via.placeholder.com/300" />
+        </Card>
+
+        <Card>
+          <CardTitle>2. Confirm address and payment</CardTitle>
+          <CardImage src="https://via.placeholder.com/300" />
+        </Card>
+
+        <Card>
+          <CardTitle>3. Enjoy your trip with your AirPack</CardTitle>
+          <CardImage src="https://via.placeholder.com/300" />
+        </Card>
+      </div>
+    </Section>
   </>
 );
 
