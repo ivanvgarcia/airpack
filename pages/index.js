@@ -39,15 +39,26 @@ const FlexRow = styled.div`
   flex-direction: ${props => props.direction || 'column'};
   justify-content: center;
   align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
-const Card = styled.div``;
+const Card = styled.div`
+  width: 90%;
+  margin: 20px;
+  @media (min-width: 768px) {
+    width: 300px;
+  }
+`;
 
 const CardContent = styled.div`
   padding: 15px 15px 50px;
 `;
 
 const CardTitle = styled.h4`
+  width: 100%;
   text-align: center;
 `;
 
@@ -55,6 +66,8 @@ const CardDescription = styled.p``;
 
 const CardImage = styled.img`
   width: 100%;
+  @media (min-width: 768px) {
+  }
 `;
 
 const AirPackCard = styled.div`
@@ -63,6 +76,14 @@ const AirPackCard = styled.div`
   width: 80%;
   position: relative;
   margin: 40px 0;
+  @media (min-width: 768px) {
+    display: flex;
+    max-width: 600px;
+    margin: 40px;
+    img {
+      width: 30%;
+    }
+  }
 `;
 
 const AirPackPrice = styled.p`
@@ -91,9 +112,7 @@ const Home = () => (
       <title>Airpack</title>
       <description></description>
     </Head>
-
     <Nav />
-
     <Hero>
       <Title className="title">
         Get your travel essentials packed and delivered by locals
@@ -118,26 +137,28 @@ const Home = () => (
           <CardImage src="https://via.placeholder.com/300" />
         </Card>
       </FlexRow>
-    </Section>
-
-    <FlexRow>
-      {[1, 2, 3, 4, 5, 6].map(num => (
-        <AirPackCard key={num}>
-          <CardImage src="https://via.placeholder.com/600" />{' '}
-          <CardContent>
-            <CardTitle>1 Week Adventurer Pack</CardTitle>
-            <CardDescription>
-              You know, it really doesn’t matter what you write as long as
-              you’ve got a young, and beautiful, piece of text. I’m the best
-              thing that ever happened to placeholder text.
-            </CardDescription>
-          </CardContent>
-          <AirPackPrice>59.99</AirPackPrice>
-        </AirPackCard>
-      ))}
-    </FlexRow>
+    </Section>{' '}
     <Section>
-      <Title>Why use AirPack?</Title>
+      <Title>Find an AirPack in Bangkok</Title>
+      <FlexRow>
+        {[1, 2, 3, 4, 5, 6].map(num => (
+          <AirPackCard key={num}>
+            <CardImage src="https://via.placeholder.com/600" />{' '}
+            <CardContent>
+              <CardTitle>1 Week Adventurer Pack</CardTitle>
+              <CardDescription>
+                You know, it really doesn’t matter what you write as long as
+                you’ve got a young, and beautiful, piece of text. I’m the best
+                thing that ever happened to placeholder text.
+              </CardDescription>
+            </CardContent>
+            <AirPackPrice>59.99</AirPackPrice>
+          </AirPackCard>
+        ))}
+      </FlexRow>
+    </Section>
+    <Section>
+      <Title>Why use AirPack</Title>
       <FlexRow>
         <Card>
           <CardTitle>Support Local Vendors</CardTitle>
@@ -160,31 +181,6 @@ const Home = () => (
         </Card>
       </FlexRow>
     </Section>
-    <Section>
-      <Title>Why use AirPack></Title>
-      <FlexRow>
-        <Card>
-          <CardTitle>Support Local Vendors</CardTitle>
-          <CardImage src="https://via.placeholder.com/300" />
-        </Card>
-
-        <Card>
-          <CardTitle>Give Back</CardTitle>
-          <CardImage src="https://via.placeholder.com/300" />
-        </Card>
-
-        <Card>
-          <CardTitle>Travel Light</CardTitle>
-          <CardImage src="https://via.placeholder.com/300" />
-        </Card>
-
-        <Card>
-          <CardTitle>Experience Culture</CardTitle>
-          <CardImage src="https://via.placeholder.com/300" />
-        </Card>
-      </FlexRow>
-    </Section>
-
     <Section>
       <Title>Join the AirPack Movement</Title>
 
