@@ -1,5 +1,8 @@
 import App from 'next/app';
 import React from 'react';
+import withReduxStore from '../lib/with-redux-store';
+import { Provider } from 'react-redux';
+
 import { ThemeProvider } from 'styled-components';
 
 const theme = {
@@ -8,13 +11,17 @@ const theme = {
   }
 };
 
-export default class MyApp extends App {
+class MyApp extends App {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, reduxStore } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Provider store={reduxStore}>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     );
   }
 }
+
+export default withReduxStore(MyApp);
