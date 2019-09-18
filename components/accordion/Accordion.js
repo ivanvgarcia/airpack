@@ -1,16 +1,25 @@
+import { useState } from 'react';
 import {
   AccordionDiv,
   AccordionTitle,
   AccordionIcon,
-  AccordionContent
+  AccordionContent,
+  AccordionHeader
 } from './AccordionStyles';
 
 const Accordion = ({ title, content }) => {
+  const [show, setShow] = useState(false);
   return (
     <AccordionDiv>
-      <AccordionTitle>{title}</AccordionTitle>
-      <AccordionIcon></AccordionIcon>
-      <AccordionContent>{content}</AccordionContent>
+      <AccordionHeader>
+        <AccordionTitle>{title}</AccordionTitle>
+        <AccordionIcon
+          src="/static/down-chevron.png"
+          onClick={() => setShow(!show)}
+        ></AccordionIcon>
+      </AccordionHeader>
+
+      {show && <AccordionContent>{content}</AccordionContent>}
     </AccordionDiv>
   );
 };

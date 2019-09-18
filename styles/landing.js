@@ -17,9 +17,14 @@ export const Hero = styled.div`
 `;
 
 export const Title = styled.h2`
-  padding: 0 40px;
+  font-size: 1.2rem;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+    padding: 0 40px;
+    margin-bottom: 60px;
+  }
 `;
 
 export const Button = styled.button`
@@ -97,15 +102,24 @@ export const AirPackPrice = styled.p`
 `;
 
 export const CTAParagraph = styled.p`
-  font-size: 1.2rem;
-  padding: 0 100px;
-  margin-bottom: 70px;
+  padding: 0 20px;
+  margin-bottom: 60px;
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+    padding: 0 100px;
+    margin-bottom: 70px;
+  }
 `;
 
 export const Input = styled.input`
+  padding: 8px;
+  font-size: 0.8rem;
+  margin-right: 15px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 8px;
-  font-size: 1.2rem;
-  margin-right: 15px;
+
+  @media (min-width: 768px) {
+    padding: 8px;
+    font-size: 1.2rem;
+  }
 `;

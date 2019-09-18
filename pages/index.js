@@ -19,7 +19,7 @@ import {
   CTAParagraph,
   Input
 } from '../styles/landing';
-import Accordion from '../components/Accordion/Accordion';
+import Accordion from '../components/accordion/Accordion';
 
 const Home = () => (
   <Wrapper>
@@ -122,6 +122,18 @@ const Home = () => (
     <Section>
       <Container>
         <Title>Frequently Asked Questions</Title>
+        <Accordion
+          title="Frequently Asked Question"
+          content="I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?"
+        />{' '}
+        <Accordion
+          title="Frequently Asked Question"
+          content="I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?"
+        />{' '}
+        <Accordion
+          title="Frequently Asked Question"
+          content="I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?"
+        />{' '}
         <Accordion
           title="Frequently Asked Question"
           content="I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?"
