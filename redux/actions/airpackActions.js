@@ -1,9 +1,9 @@
 import { GET_PACKS } from './types';
-import axios from 'axios';
+import { airpackAPI } from '../../config/baseUrl';
 
 export const getPacks = () => async dispatch => {
   try {
-    const res = await axios.get('http://localhost:5000/api/v1/packs?limit=1');
+    const res = await airpackAPI.get('/packs?limit=4');
     dispatch({
       type: GET_PACKS,
       payload: res.data.data.packs
