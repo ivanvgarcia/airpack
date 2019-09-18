@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Alert from './alert/Alert';
 
 const links = [
   { href: 'https://github.com/ivanvgarcia/airpack', label: 'GitHub' }
@@ -22,6 +23,7 @@ const Nav = () => (
         </li>
       ))}
     </ul>
+    <Alert />
 
     <style jsx>{`
       :global(html) {

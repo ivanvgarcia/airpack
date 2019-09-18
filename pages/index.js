@@ -15,15 +15,14 @@ import {
   CardImage,
   CardContent,
   CardDescription,
-  AirPackCard,
   AirPackPrice,
   CTAParagraph,
   Input
 } from '../styles/landing';
 import { connect } from 'react-redux';
 import Accordion from '../components/accordion/Accordion';
+import AirpackCard from '../components/airpackCard/AirpackCard';
 import { getPacks } from '../redux/actions/airpackActions';
-import airpackReducer from '../redux/reducers/airpackReducer';
 
 const Home = ({ packs }) => {
   useEffect(() => {
@@ -34,14 +33,15 @@ const Home = ({ packs }) => {
     <Wrapper>
       <Head>
         <title>Airpack</title>
-        <description></description>
       </Head>
       <Nav />
       <Hero>
         <Title className="title">
           Get your travel essentials packed and delivered by locals
         </Title>
-        <Button>See Packs</Button>
+        <Link href="/airpacks">
+          <a>See Packs</a>
+        </Link>
       </Hero>
       <Section>
         <Container>
@@ -68,37 +68,13 @@ const Home = ({ packs }) => {
         <Title>Find an AirPack in Bangkok</Title>
         <Container>
           <FlexRow>
-            {packs
-              ? packs.map((pack, idx) => (
-                  <AirPackCard key={pack._id || idx}>
-                    <CardImage src="https://via.placeholder.com/600" />{' '}
-                    <CardContent>
-                      <CardTitle>
-                        {packs.name || '1 Week Adventurer Pack'}
-                      </CardTitle>
-                      <CardDescription>
-                        {pack.description ||
-                          'You know, it really doesn’t matter what you write as long as you’ve got a young, and beautiful, piece of text. I’m the best thing that ever happened to placeholder text.'}
-                      </CardDescription>
-                    </CardContent>
-                    <AirPackPrice>{packs.price || '59.99'}</AirPackPrice>
-                  </AirPackCard>
-                ))
-              : [1, 2, 3, 4, 5, 6].map(num => (
-                  <AirPackCard key={num}>
-                    <CardImage src="https://via.placeholder.com/600" />{' '}
-                    <CardContent>
-                      <CardTitle>1 Week Adventurer Pack</CardTitle>
-                      <CardDescription>
-                        You know, it really doesn’t matter what you write as
-                        long as you’ve got a young, and beautiful, piece of
-                        text. I’m the best thing that ever happened to
-                        placeholder text.
-                      </CardDescription>
-                    </CardContent>
-                    <AirPackPrice>59.99</AirPackPrice>
-                  </AirPackCard>
-                ))}
+            {packs ? (
+              packs.map((pack, idx) => (
+                <AirpackCard key={pack._id} pack={pack} />
+              ))
+            ) : (
+              <h4>Loading...</h4>
+            )}
           </FlexRow>
         </Container>
       </Section>

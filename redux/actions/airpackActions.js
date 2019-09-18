@@ -1,5 +1,6 @@
-import { GET_PACKS } from './types';
+import { GET_PACKS, SET_ALERT, REMOVE_ALERT } from './types';
 import { airpackAPI } from '../../config/baseUrl';
+import { setAlert } from './alert';
 
 export const getPacks = () => async dispatch => {
   try {
@@ -8,5 +9,12 @@ export const getPacks = () => async dispatch => {
       type: GET_PACKS,
       payload: res.data.data.packs
     });
-  } catch (error) {}
+  } catch (error) {
+    dispatch({
+      type: SET_ALERT,
+      payload: { message: error }
+    });
+
+    //setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), 1000);
+  }
 };
