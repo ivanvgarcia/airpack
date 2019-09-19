@@ -11,7 +11,7 @@ import {
 const AirpackCard = ({ pack: { name, price, description } }) => {
   return (
     <AirpackCardContainer>
-      <AirpackCardImage src="https://via.placeholder.com/600" />{' '}
+      <AirpackCardImage src="/static/airpack_sample.png" />
       <AirpackCardContent>
         <AirpackCardTitle>{name}</AirpackCardTitle>
         <AirpackCardDescription>{description}</AirpackCardDescription>

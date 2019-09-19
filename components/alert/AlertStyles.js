@@ -8,7 +8,7 @@ export const Container = styled.div`
   top: 20px;
   right: 20px;
   box-shadow: 1px 3px 2px #000;
-  background: ${props => props.theme.secondaryColor || 'teal'};
+  background: ${props => props.theme.color.primary};
   animation: slide-in 0.4s forwards;
   overflow: hidden;
   z-index: 9999;
@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const Header = styled.h4`
   background: white;
-  color: ${props => props.theme.secondaryColor};
+  color: ${props => props.theme.colors.primary};
   text-align: center;
   font-size: 1.6rem;
   margin: 0;

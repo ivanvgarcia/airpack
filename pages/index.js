@@ -13,9 +13,7 @@ import {
   Card,
   CardTitle,
   CardImage,
-  CardContent,
-  CardDescription,
-  AirPackPrice,
+  StyledLink,
   CTAParagraph,
   Input
 } from '../styles/landing';
@@ -23,6 +21,14 @@ import { connect } from 'react-redux';
 import Accordion from '../components/accordion/Accordion';
 import AirpackCard from '../components/airpackCard/AirpackCard';
 import { getPacks } from '../redux/actions/airpackActions';
+
+import SuitCases from '../static/svgs/suitcases.svg';
+import Clipboard from '../static/svgs/clipboard.svg';
+import WomanSuitcase from '../static/svgs/woman_suitcase.svg';
+import Woman from '../static/svgs/woman.svg';
+import Heart from '../static/svgs/heart.svg';
+import Feather from '../static/svgs/feather.svg';
+import WomanPosing from '../static/svgs/posingwoman.svg';
 
 const Home = ({ packs }) => {
   useEffect(() => {
@@ -39,27 +45,27 @@ const Home = ({ packs }) => {
         <Title className="title">
           Get your travel essentials packed and delivered by locals
         </Title>
-        <Link href="/airpacks">
-          <a>See Packs</a>
+        <Link href="/airpacks" passHref>
+          <StyledLink>See Packs</StyledLink>
         </Link>
       </Hero>
       <Section>
         <Container>
           <Title>How does it work?</Title>
-          <FlexRow>
+          <FlexRow align="stretch">
             <Card>
               <CardTitle>1. Select the perfect Airpack</CardTitle>
-              <CardImage src="https://via.placeholder.com/300" />
+              <SuitCases />
             </Card>
 
             <Card>
               <CardTitle>2. Confirm address and payment</CardTitle>
-              <CardImage src="https://via.placeholder.com/300" />
+              <Clipboard />
             </Card>
 
             <Card>
               <CardTitle>3. Enjoy your trip with your AirPack</CardTitle>
-              <CardImage src="https://via.placeholder.com/300" />
+              <WomanSuitcase />
             </Card>
           </FlexRow>
         </Container>
@@ -81,25 +87,25 @@ const Home = ({ packs }) => {
       <Section>
         <Container>
           <Title>Why use AirPack</Title>
-          <FlexRow>
+          <FlexRow align="stretch">
             <Card>
               <CardTitle>Support Local Vendors</CardTitle>
-              <CardImage src="https://via.placeholder.com/300" />
+              <Woman />
             </Card>
 
             <Card>
               <CardTitle>Give Back</CardTitle>
-              <CardImage src="https://via.placeholder.com/300" />
+              <Heart />
             </Card>
 
             <Card>
               <CardTitle>Travel Light</CardTitle>
-              <CardImage src="https://via.placeholder.com/300" />
+              <Feather />
             </Card>
 
             <Card>
               <CardTitle>Experience Culture</CardTitle>
-              <CardImage src="https://via.placeholder.com/300" />
+              <WomanPosing />
             </Card>
           </FlexRow>
         </Container>

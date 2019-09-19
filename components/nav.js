@@ -1,10 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Alert from './alert/Alert';
+import Logo from '../static/svgs/logo.svg';
 
-const links = [
-  { href: 'https://github.com/ivanvgarcia/airpack', label: 'GitHub' }
-].map(link => {
+const links = [].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
 });
@@ -14,7 +13,9 @@ const Nav = () => (
     <ul>
       <li>
         <Link href="/">
-          <a>airPack</a>
+          <a>
+            <Logo />
+          </a>
         </Link>
       </li>
       {links.map(({ key, href, label }) => (
@@ -26,14 +27,14 @@ const Nav = () => (
     <Alert />
 
     <style jsx>{`
+      @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
       :global(html) {
         height: 100%;
       }
       :global(body) {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-        background: #ccc;
+        font-family: 'Quicksand', sans-serif;
+        background: #d2d2d2;
         height: 100%;
       }
       :global(#__next) {
@@ -48,13 +49,14 @@ const Nav = () => (
       }
       nav > ul {
         padding: 4px 16px;
+        list-style: none;
       }
       li {
         display: flex;
         padding: 6px 8px;
       }
-      a {
-        color: #40e0d0;
+      nav > a {
+        color: ${props => props.theme.colors.primary};
         text-decoration: none;
         font-size: 1.4rem;
         font-weight: 900;

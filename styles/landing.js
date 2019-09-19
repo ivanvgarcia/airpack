@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export const Container = styled.div`
   max-width: 1400px;
@@ -13,22 +14,34 @@ export const Hero = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 50vh;
-  border-bottom: 5px dashed turquoise;
+  border-bottom: 5px dashed ${props => props.theme.colors.primary};
+`;
+
+export const StyledLink = styled.a`
+  background: ${props => props.theme.colors.primary};
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 `;
 
 export const Title = styled.h2`
   font-size: 1.2rem;
   text-align: center;
   margin-bottom: 30px;
-
+  padding: 0 10px;
   @media (min-width: 768px) {
     padding: 0 40px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
 `;
 
 export const Button = styled.button`
-  background: turquoise;
+  background: ${props => props.theme.colors.primary};
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -38,7 +51,7 @@ export const Button = styled.button`
 `;
 
 export const Section = styled.section`
-  border-bottom: 5px dashed turquoise;
+  border-bottom: 5px dashed ${props => props.theme.colors.primary};
   min-height: 50vh;
   padding: 20px 0 80px 0;
 `;
@@ -47,7 +60,7 @@ export const FlexRow = styled.div`
   display: flex;
   flex-direction: ${props => props.direction || 'column'};
   justify-content: center;
-  align-items: center;
+  align-items: ${props => props.align || 'center'};
   @media (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -57,8 +70,13 @@ export const FlexRow = styled.div`
 export const Card = styled.div`
   width: 90%;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
   @media (min-width: 768px) {
-    width: 300px;
+    width: 280px;
   }
 `;
 
@@ -69,6 +87,9 @@ export const CardContent = styled.div`
 export const CardTitle = styled.h4`
   width: 100%;
   text-align: center;
+  @media (min-width: 768px) {
+    margin-bottom: 60px;
+  }
 `;
 
 export const CardDescription = styled.p``;
@@ -122,4 +143,8 @@ export const Input = styled.input`
     padding: 8px;
     font-size: 1.2rem;
   }
+`;
+
+export const SVGContainer = styled.div`
+  height: 50px;
 `;
