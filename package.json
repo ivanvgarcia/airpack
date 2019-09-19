@@ -23,6 +23,8 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6"
+    "babel-plugin-styled-components": "^1.10.6",
+    "next-workbox-webpack-plugin": "^2.1.1",
+    "webpack-pwa-manifest": "^4.0.0"
   }
 }

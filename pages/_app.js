@@ -3,6 +3,7 @@ import React from 'react';
 import withReduxStore from '../lib/with-redux-store';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import OfflineSupport from '../components/OfflineSupport';
 
 const theme = {
   colors: {
@@ -17,6 +18,7 @@ class MyApp extends App {
     const { Component, pageProps, reduxStore } = this.props;
     return (
       <Provider store={reduxStore}>
+        <OfflineSupport />
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
         </ThemeProvider>
