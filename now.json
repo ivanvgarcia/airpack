@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": ["airpack.io"],
   "routes": [
     {
       "src": "^/service-worker.js$",
