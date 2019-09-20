@@ -2,11 +2,16 @@ import React, { PureComponent } from 'react';
 
 class OfflineSupport extends PureComponent {
   componentDidMount() {
+    console.log(navigator);
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('/sw.js')
-        .then(() => console.log('service worker registered.'))
-        .catch(err => console.dir(err));
+        .register('/service-worker.js')
+        .then(registration => {
+          console.log('service worker registration successful');
+        })
+        .catch(err => {
+          console.warn('service worker registration failed', err.message);
+        });
     }
   }
 
