@@ -40,15 +40,7 @@ export const Title = styled.h2`
   }
 `;
 
-export const Button = styled.button`
-  background: ${props => props.theme.colors.primary};
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  padding: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-`;
+export const Button = styled.button``;
 
 export const Section = styled.section`
   border-bottom: 5px dashed ${props => props.theme.colors.primary};

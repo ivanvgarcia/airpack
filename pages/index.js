@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import Nav from '../components/nav';
+import Nav from '../components/layout/nav/nav';
 import {
   Container,
   Wrapper,
