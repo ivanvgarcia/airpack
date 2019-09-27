@@ -3,10 +3,11 @@ import React from 'react';
 import withReduxStore from '../lib/with-redux-store';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import OfflineSupport from '../components/OfflineSupport';
 import Head from 'next/head';
 import { createGlobalStyle } from 'styled-components';
-import { create } from 'domain';
+import Nav from '../components/layout/nav/nav';
+import { useDispatch } from 'react-redux';
+import { loadUser } from '../redux/actions/auth';
 
 const theme = {
   colors: {
@@ -94,7 +95,9 @@ const Global = createGlobalStyle`
 class MyApp extends App {
   render() {
     const { Component, pageProps, reduxStore } = this.props;
-    console.log(reduxStore);
+    if (!reduxStore.getState().auth.user) {
+      reduxStore.dispatch(loadUser());
+    }
     return (
       <Provider store={reduxStore}>
         <Head>
@@ -129,6 +132,7 @@ class MyApp extends App {
           <link rel='manifest' href='/static/site.webmanifest' />
         </Head>
         <Global theme={theme} />
+        <Nav />
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
         </ThemeProvider>

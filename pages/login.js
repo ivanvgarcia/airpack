@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Formik } from 'formik';
-import { register } from '../redux/actions/auth';
+import { login } from '../redux/actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
 
@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 `;
 
-const SignUp = () => {
+const Login = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
@@ -34,17 +34,11 @@ const SignUp = () => {
         <h1>Sign Up</h1>{' '}
         <Formik
           initialValues={{
-            name: '',
             email: '',
-            password: '',
-            passwordConfirm: ''
+            password: ''
           }}
           validate={values => {
             let errors = {};
-
-            if (!values.name) {
-              errors.name = 'Name is Required';
-            }
 
             if (!values.email) {
               errors.email = 'Email is Required';
@@ -56,21 +50,12 @@ const SignUp = () => {
 
             if (!values.password) {
               errors.password = 'Password is Required';
-            } else if (values.password !== values.passwordConfirm) {
-              errors.password = 'Passwords do not match!';
-              errors.passwordConfirm = 'Passwords do not match!';
-            } else if (values.password.length < 8) {
-              errors.password = 'Password must be greater than 8 characters';
-            }
-
-            if (!values.passwordConfirm) {
-              errors.passwordConfirm = 'You must confirm your password';
             }
 
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            dispatch(register(values));
+            dispatch(login(values));
             setSubmitting(false);
           }}
         >
@@ -85,15 +70,6 @@ const SignUp = () => {
             /* and other goodies */
           }) => (
             <form onSubmit={handleSubmit}>
-              <label htmlFor='name'>Name</label>
-              <input
-                type='name'
-                name='name'
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.name}
-              />
-              <span>{errors.name && touched.name && errors.name} </span>
               <label htmlFor='email'>Email</label>
               <input
                 type='email'
@@ -114,19 +90,7 @@ const SignUp = () => {
               <span>
                 {errors.password && touched.password && errors.password}
               </span>
-              <label htmlFor='passwordConfirm'>Confirm Password</label>
-              <input
-                type='password'
-                name='passwordConfirm'
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.passwordConfirm}
-              />
-              <span>
-                {errors.passwordConfirm &&
-                  touched.passwordConfirm &&
-                  errors.passwordConfirm}
-              </span>
+
               <button type='submit' disabled={isSubmitting}>
                 Submit
               </button>
@@ -138,4 +102,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

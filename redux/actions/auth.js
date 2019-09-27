@@ -17,6 +17,8 @@ export const loadUser = () => async dispatch => {
     setAuthToken(localStorage.token);
   }
 
+  console.log(localStorage.token);
+
   try {
     const res = await airpackAPI.get('/users/current', {
       headers: {
@@ -25,11 +27,14 @@ export const loadUser = () => async dispatch => {
       }
     });
 
+    console.log(res.data.data.user);
+
     dispatch({
       type: USER_LOADED,
-      payload: res.data.data.user
+      payload: res.data.user
     });
   } catch (err) {
+    console.log(err);
     dispatch({
       type: AUTH_ERROR
     });
@@ -74,13 +79,14 @@ export const register = ({
 };
 
 // Login User
-export const login = (email, password, socketId) => async dispatch => {
+export const login = ({ email, password }) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
     }
   };
-  const body = JSON.stringify({ email, password, socketId });
+
+  const body = JSON.stringify({ email, password });
 
   try {
     const res = await airpackAPI.post(`/users/login`, body, config);

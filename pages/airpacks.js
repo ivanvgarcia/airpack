@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Nav from '../components/nav';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getPacks } from '../redux/actions/airpackActions';
@@ -20,7 +19,6 @@ const Airpacks = ({ packs, loading }) => {
       <Head>
         <title>Packs</title>
       </Head>
-      <Nav />
       <h1>Airpacks</h1>
       <Section>
         <Container>

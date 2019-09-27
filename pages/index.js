@@ -42,7 +42,6 @@ const Home = ({ packs }) => {
       <Head>
         <title>Airpack</title>
       </Head>
-      <Nav />
       <Hero>
         <Title className='title'>
           Get your travel essentials packed and delivered by locals
