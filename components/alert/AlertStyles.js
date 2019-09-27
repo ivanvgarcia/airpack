@@ -8,7 +8,7 @@ export const Container = styled.div`
   top: 20px;
   right: 20px;
   box-shadow: 1px 3px 2px #000;
-  background: ${props => props.theme.color.primary};
+  background: ${props => props.theme.colors.primary};
   animation: slide-in 0.4s forwards;
   overflow: hidden;
   z-index: 9999;

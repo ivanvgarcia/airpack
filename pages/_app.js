@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import OfflineSupport from '../components/OfflineSupport';
 import Head from 'next/head';
+import { createGlobalStyle } from 'styled-components';
+import { create } from 'domain';
 
 const theme = {
   colors: {
@@ -14,6 +16,10 @@ const theme = {
   }
 };
 
+const Global = createGlobalStyle`
+
+`;
+
 class MyApp extends App {
   render() {
     const { Component, pageProps, reduxStore } = this.props;
@@ -21,35 +27,36 @@ class MyApp extends App {
       <Provider store={reduxStore}>
         <Head>
           <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/static/apple-touch-icon.png"
+            rel='apple-touch-icon'
+            sizes='180x180'
+            href='/static/apple-touch-icon.png'
           />
           >
           <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/static/favicon-32x32.png"
+            rel='icon'
+            type='image/png'
+            sizes='32x32'
+            href='/static/favicon-32x32.png'
           />
           <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/static/favicon-16x16.png"
+            rel='icon'
+            type='image/png'
+            sizes='16x16'
+            href='/static/favicon-16x16.png'
           />
           <link
-            rel="mask-icon"
-            href="/static/safari-pinned-tab.svg"
-            color="#5bbad5"
+            rel='mask-icon'
+            href='/static/safari-pinned-tab.svg'
+            color='#5bbad5'
           />
-          <meta name="apple-mobile-web-app-title" content="Airpack" />
-          <meta name="application-name" content="Airpack" />
-          <meta name="msapplication-TileColor" content="#ffffff" />
-          <meta name="theme-color" content="#ffffff" />
-          <link rel="manifest" href="/static/manifest.json" />
-          <link rel="manifest" href="/static/site.webmanifest" />
+          <meta name='apple-mobile-web-app-title' content='Airpack' />
+          <meta name='application-name' content='Airpack' />
+          <meta name='msapplication-TileColor' content='#ffffff' />
+          <meta name='theme-color' content='#ffffff' />
+          <link rel='manifest' href='/static/manifest.json' />
+          <link rel='manifest' href='/static/site.webmanifest' />
         </Head>
+        <Global />
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
         </ThemeProvider>

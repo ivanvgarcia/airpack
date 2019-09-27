@@ -20,6 +20,8 @@ import {
 import { connect } from 'react-redux';
 import Accordion from '../components/accordion/Accordion';
 import AirpackCard from '../components/airpackCard/AirpackCard';
+import Modal from '../components/modal/Modal';
+
 import { getPacks } from '../redux/actions/airpackActions';
 
 import SuitCases from '../static/svgs/suitcases.svg';
@@ -42,17 +44,17 @@ const Home = ({ packs }) => {
       </Head>
       <Nav />
       <Hero>
-        <Title className="title">
+        <Title className='title'>
           Get your travel essentials packed and delivered by locals
         </Title>
-        <Link href="/airpacks" passHref>
+        <Link href='/airpacks' passHref>
           <StyledLink>See Packs</StyledLink>
         </Link>
       </Hero>
       <Section>
         <Container>
           <Title>How does it work?</Title>
-          <FlexRow align="stretch">
+          <FlexRow align='stretch'>
             <Card>
               <CardTitle>1. Select the perfect Airpack</CardTitle>
               <SuitCases />
@@ -87,7 +89,7 @@ const Home = ({ packs }) => {
       <Section>
         <Container>
           <Title>Why use AirPack</Title>
-          <FlexRow align="stretch">
+          <FlexRow align='stretch'>
             <Card>
               <CardTitle>Support Local Vendors</CardTitle>
               <Woman />
@@ -121,8 +123,8 @@ const Home = ({ packs }) => {
             Southern border, and I will make Google pay for that text. Mark my
             words.
           </CTAParagraph>
-          <FlexRow direction="row">
-            <Input type="text" placeholder="mike@gmail.com" />
+          <FlexRow direction='row'>
+            <Input type='text' placeholder='mike@gmail.com' />
             <Button>Subscribe</Button>
           </FlexRow>
         </Container>
@@ -131,20 +133,20 @@ const Home = ({ packs }) => {
         <Container>
           <Title>Frequently Asked Questions</Title>
           <Accordion
-            title="Frequently Asked Question"
-            content="I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?"
+            title='Frequently Asked Question'
+            content='I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?'
           />{' '}
           <Accordion
-            title="Frequently Asked Question"
-            content="I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?"
+            title='Frequently Asked Question'
+            content='I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?'
           />{' '}
           <Accordion
-            title="Frequently Asked Question"
-            content="I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?"
+            title='Frequently Asked Question'
+            content='I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?'
           />{' '}
           <Accordion
-            title="Frequently Asked Question"
-            content="I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?"
+            title='Frequently Asked Question'
+            content='I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?'
           />
         </Container>
       </Section>
