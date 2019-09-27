@@ -13,21 +13,16 @@ import {
 import setAuthToken from '../../utils/setAuthToken';
 
 export const loadUser = () => async dispatch => {
-  if (localStorage.token) {
-    setAuthToken(localStorage.token);
-  }
-
-  console.log(localStorage.token);
+  // if (localStorage.token) {
+  //   setAuthToken(localStorage.token);
+  // }
 
   try {
     const res = await airpackAPI.get('/users/current', {
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.token}`
+        'Content-Type': 'application/json'
       }
     });
-
-    console.log(res.data.data.user);
 
     dispatch({
       type: USER_LOADED,

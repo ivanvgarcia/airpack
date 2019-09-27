@@ -23,14 +23,14 @@ export default function(state = initialState, action) {
     case USER_LOADED:
       return {
         ...state,
-        token: localStorage.getItem('token'),
+        // token: localStorage.getItem('token'),
         isAuthenticated: true,
         loading: false,
         user: payload.data.user
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      localStorage.setItem('token', payload.token);
+      // localStorage.setItem('token', payload.token);
       return {
         ...state,
         token: payload.token,
@@ -43,7 +43,7 @@ export default function(state = initialState, action) {
     case LOGIN_FAIL:
     case LOGOUT:
     case ACCOUNT_DELETED:
-      localStorage.removeItem('token');
+      // localStorage.removeItem('token');
       return {
         ...state,
         token: null,

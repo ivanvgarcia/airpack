@@ -95,9 +95,7 @@ const Global = createGlobalStyle`
 class MyApp extends App {
   render() {
     const { Component, pageProps, reduxStore } = this.props;
-    if (!reduxStore.getState().auth.user) {
-      reduxStore.dispatch(loadUser());
-    }
+
     return (
       <Provider store={reduxStore}>
         <Head>
