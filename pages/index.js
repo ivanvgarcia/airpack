@@ -31,6 +31,7 @@ import Woman from '../static/svgs/woman.svg';
 import Heart from '../static/svgs/heart.svg';
 import Feather from '../static/svgs/feather.svg';
 import WomanPosing from '../static/svgs/posingwoman.svg';
+import Mailchimp from '../components/mailchimp/Mailchimp';
 
 const Home = ({ packs }) => {
   useEffect(() => {
@@ -122,10 +123,7 @@ const Home = ({ packs }) => {
             Southern border, and I will make Google pay for that text. Mark my
             words.
           </CTAParagraph>
-          <FlexRow direction='row'>
-            <Input type='text' placeholder='mike@gmail.com' />
-            <Button>Subscribe</Button>
-          </FlexRow>
+          <Mailchimp />
         </Container>
       </Section>
       <Section>

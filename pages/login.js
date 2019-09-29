@@ -3,11 +3,8 @@ import { Formik } from 'formik';
 import { login } from '../redux/actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
-
 import styled from 'styled-components';
-
 import Head from 'next/head';
-import Nav from '../components/layout/nav/nav';
 
 export const Container = styled.div`
   padding: 0 20px;
