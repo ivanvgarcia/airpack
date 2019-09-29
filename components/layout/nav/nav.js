@@ -36,7 +36,6 @@ const Nav = () => {
     </NavStyles.Links>
   );
 
-  console.log(isAuthenticated);
   return (
     <nav>
       <ul>

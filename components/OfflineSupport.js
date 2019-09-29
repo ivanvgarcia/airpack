@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 
 class OfflineSupport extends PureComponent {
   componentDidMount() {
-    console.log(navigator);
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/service-worker.js')
