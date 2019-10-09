@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Alert from '../../alert/Alert';
 import Logo from '../../../static/svgs/logo.svg';
+import Burger from '../../burger/Burger';
+import Menu from '../../menu/Menu';
 import { useSelector } from 'react-redux';
 import { NavStyles } from './NavStyles';
 
@@ -14,6 +16,7 @@ const Nav = () => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const loading = useSelector(state => state.auth.loading);
   const user = useSelector(state => state.auth.user);
+  const [open, setOpen] = useState(false);
 
   const authLinks = () => (
     <li>
@@ -24,12 +27,12 @@ const Nav = () => {
   const guestLinks = () => (
     <NavStyles.Links>
       <li>
-        <Link href='/sign-up' passHref>
+        <Link href="/sign-up" passHref>
           <button>Sign Up</button>
         </Link>
       </li>
       <li>
-        <Link href='/login' passHref>
+        <Link href="/login" passHref>
           <button>Login</button>
         </Link>
       </li>
@@ -40,13 +43,12 @@ const Nav = () => {
     <nav>
       <ul>
         <li>
-          <Link href='/'>
+          <Link href="/">
             <a>
               <Logo />
             </a>
           </Link>
         </li>
-        {!loading && isAuthenticated ? authLinks() : guestLinks()}
 
         {links.map(({ key, href, label }) => (
           <li key={key}>
@@ -54,6 +56,8 @@ const Nav = () => {
           </li>
         ))}
       </ul>
+      <Burger open={open} setOpen={setOpen} />
+      <Menu open={open} setOpen={setOpen} />
       <Alert />
     </nav>
   );
