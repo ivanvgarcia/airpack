@@ -7,15 +7,15 @@ export const StyledMenu = styled.nav`
   background: ${({ theme }) => theme.colors.primary};
   min-height: 100vh;
   text-align: left;
-  padding: 2rem;
+  padding: 2rem 0 2rem 8rem;
   position: fixed;
   top: 0;
   right: 0;
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
   z-index: 9999;
-  box-shadow: ${({ theme }) => `-2px 0 2px ${theme.colors.black}`};
   width: 300px;
+  clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0 100%);
 
   svg {
     margin-bottom: 20px;
