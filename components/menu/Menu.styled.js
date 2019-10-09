@@ -7,14 +7,13 @@ export const StyledMenu = styled.nav`
   background: ${({ theme }) => theme.colors.primary};
   min-height: 100vh;
   text-align: left;
-  padding: 2rem 0 2rem 8rem;
+  padding: 2rem 2rem 2rem 8rem;
   position: fixed;
   top: 0;
   right: 0;
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
   z-index: 9999;
-  width: 300px;
   clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0 100%);
 
   svg {
@@ -23,6 +22,9 @@ export const StyledMenu = styled.nav`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
+    clip-path: none;
+    align-items: center;
+    padding: 0;
   }
 
   button {

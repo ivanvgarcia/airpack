@@ -16,7 +16,8 @@ const theme = {
     primary: '#73D1CC',
     grey: '#D2D2D2',
     black: '#4A4A4A'
-  }
+  },
+  mobile: '576px',
 };
 
 const Global = createGlobalStyle`
