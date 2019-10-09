@@ -46,14 +46,12 @@ const StyledLogo = styled(Logo) `
   padding: .6rem;
   border-radius: 10px;
   background: white;
-  top: -37px;
-  left: 0;
+  top: -40px;
+  left: -50px;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  box-shadow:${({ theme }) => `6px 6px 8px ${theme.colors.black}`};
+  transform: rotate(-10deg);
 `
-
-
 
 const SignUp = () => {
   const dispatch = useDispatch();
