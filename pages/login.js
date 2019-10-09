@@ -49,6 +49,12 @@ const StyledLogo = styled(Logo) `
   right: 0;
   box-shadow:${({ theme }) => `6px 6px 8px ${theme.colors.black}`};
   transform: rotate(-10deg);
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    top: -30px;
+    left: -55px;
+    transform:  rotate(-10deg) scale(.7);
+  }
 `
 
 const Login = () => {
