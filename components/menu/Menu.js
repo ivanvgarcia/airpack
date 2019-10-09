@@ -35,6 +35,11 @@ const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
       <Logo></Logo>
+      <li>
+        <Link href="/" passHref>
+          <button>Home</button>
+        </Link>
+      </li>
       {!loading && isAuthenticated ? authLinks() : guestLinks()}
     </StyledMenu>
   );

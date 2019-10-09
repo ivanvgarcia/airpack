@@ -80,7 +80,7 @@ const Global = createGlobalStyle`
         border: none;
         margin: 10px 0;
         padding: 5px;
-        width: 100%;
+        width: 90%;
         max-width: 500px;
         font-size: 1.2rem;
      }
