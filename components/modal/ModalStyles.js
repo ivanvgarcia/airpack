@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const scaleUp = keyframes`
+from {  
+  transform: scale(-0);
+}
+
+to {  
+  transform: scale(100%);
+}
+`;
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -13,17 +23,22 @@ const ModalWrapper = styled.div`
 `;
 
 const ModalBody = styled.div`
+  position: relative;
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
   border: 1px solid #888;
-  width: 30%;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: ${({ theme }) => `0 2px 4px ${theme.colors.black}`};
+  animation: ${scaleUp} 0.3s linear forwards;
 `;
 
 const CloseButton = styled.span`
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
+  color: ${({ theme }) => theme.colors.black};
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 50px;
   font-weight: bold;
 
   &:hover,

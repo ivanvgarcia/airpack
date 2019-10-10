@@ -6,6 +6,7 @@ export const AirpackCardContainer = styled.div`
   width: 80%;
   position: relative;
   margin: 40px 0;
+  border-radius: 10px;
   @media (min-width: 768px) {
     display: flex;
     max-width: 600px;
@@ -38,3 +39,17 @@ export const AirpackCardTitle = styled.h4`
 `;
 
 export const AirpackCardDescription = styled.p``;
+
+export const AirpackCardDetails = styled.div`
+  padding: 20px;
+`;
+
+export const AirpackCardButton = styled.button`
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: ${({ theme }) => `0 2px 4px ${theme.colors.black}`};
+`;

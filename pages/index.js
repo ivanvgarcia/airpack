@@ -44,17 +44,17 @@ const Home = ({ packs }) => {
         <title>Airpack</title>
       </Head>
       <Hero>
-        <Title className='title'>
+        <Title className="title">
           Get your travel essentials packed and delivered by locals
         </Title>
-        <Link href='/airpacks' passHref>
+        <Link href="/airpacks" passHref>
           <StyledLink>See Packs</StyledLink>
         </Link>
       </Hero>
       <Section>
         <Container>
           <Title>How does it work?</Title>
-          <FlexRow align='stretch'>
+          <FlexRow align="stretch">
             <Card>
               <CardTitle>1. Select the perfect Airpack</CardTitle>
               <SuitCases />
@@ -89,7 +89,7 @@ const Home = ({ packs }) => {
       <Section>
         <Container>
           <Title>Why use AirPack</Title>
-          <FlexRow align='stretch'>
+          <FlexRow align="stretch">
             <Card>
               <CardTitle>Support Local Vendors</CardTitle>
               <Woman />
@@ -117,11 +117,11 @@ const Home = ({ packs }) => {
           <Title>Join the AirPack Movement</Title>
 
           <CTAParagraph>
-            I will write some great placeholder text – and nobody writes better
-            placeholder text than me, believe me – and I’ll write it very
-            inexpensively. I will write some great, great text on your website’s
-            Southern border, and I will make Google pay for that text. Mark my
-            words.
+            We’re a team of world-travelers and digital nomads just like you! We
+            understand first-hand that packing and lugging around bags can suck,
+            especially in a new environment. Subscribe to our newsletter to
+            follow our journey. Together, we can remove the baggage out of
+            travel!
           </CTAParagraph>
           <Mailchimp />
         </Container>
@@ -130,20 +130,28 @@ const Home = ({ packs }) => {
         <Container>
           <Title>Frequently Asked Questions</Title>
           <Accordion
-            title='Frequently Asked Question'
-            content='I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?'
-          />{' '}
+            title="What if my clothes don’t fit or I’m unhappy with the quality of my pack?"
+            content="No worries! We have a dedicated support team that will personally work with you to quickly adjust your pack so you can relax and enjoy your trip!"
+          />
           <Accordion
-            title='Frequently Asked Question'
-            content='I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?'
-          />{' '}
+            title="Are these clothes new?"
+            content="Yes. Our designers have carefully curated new clothes from high-quality local vendors to ensure you are always wearing awesome threads."
+          />
           <Accordion
-            title='Frequently Asked Question'
-            content='I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?'
-          />{' '}
+            title="How do I contact support?"
+            content="When you purchase a pack, you will be emailed a special support code. With that, we can keep track of your pack and ensure that you receive any help you may need."
+          />
           <Accordion
-            title='Frequently Asked Question'
-            content='I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively?'
+            title="How and when will I get my pack?"
+            content="Once you provide the drop-off address, the Airpack delivery team will mail your pack by priority same-day mail. The cost is included when you book your pack."
+          />
+          <Accordion
+            title="What do I do with my clothes when I’m done?"
+            content="Two options: 1) Bring your clothes home with the nifty travel-bag we included 2) Donate your clothes and Airpack will pick-up and give them to local charities."
+          />
+          <Accordion
+            title="How do I become a local partner vendor?"
+            content="Contact hello@airpack.io with the subject line “Local Partner Vendor”"
           />
         </Container>
       </Section>

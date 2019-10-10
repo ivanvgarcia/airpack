@@ -18,6 +18,10 @@ const Nav = () => {
   const user = useSelector(state => state.auth.user);
   const [open, setOpen] = useState(false);
 
+  const handleLinkClick = () => {
+    setOpen(false);
+  };
+
   const authLinks = () => (
     <li>
       <p>{user.name}</p>
@@ -57,7 +61,7 @@ const Nav = () => {
         ))}
       </ul>
       <Burger open={open} setOpen={setOpen} />
-      <Menu open={open} setOpen={setOpen} />
+      <Menu open={open} setOpen={setOpen} handleLinkClick={handleLinkClick} />
       <Alert />
     </nav>
   );

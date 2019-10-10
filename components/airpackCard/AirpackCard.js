@@ -5,7 +5,9 @@ import {
   AirpackCardContent,
   AirpackCardTitle,
   AirpackCardDescription,
-  AirpackCardPrice
+  AirpackCardPrice,
+  AirpackCardDetails,
+  AirpackCardButton
 } from './AirpackCardStyles';
 import useToggle from '../hooks/useToggle';
 import Modal from '../modal/Modal';
@@ -18,13 +20,16 @@ const AirpackCard = ({ pack }) => {
     <AirpackCardContainer onClick={() => setOpen()}>
       {open && (
         <Modal open={open} toggle={setOpen} pack={{ ...pack }}>
-          <AirpackCardImage src='/static/airpack_sample.png' />
-          <AirpackCardTitle>{name}</AirpackCardTitle>{' '}
-          <AirpackCardDescription>{description}</AirpackCardDescription>
-          <AirpackCardPrice>${price}</AirpackCardPrice>
+          <AirpackCardImage src="/static/airpack_sample.png" />
+          <AirpackCardDetails>
+            <AirpackCardTitle>{name}</AirpackCardTitle>{' '}
+            <AirpackCardDescription>{description}</AirpackCardDescription>
+            <AirpackCardPrice>${price}</AirpackCardPrice>
+          </AirpackCardDetails>
+          <AirpackCardButton>Purchase Pack</AirpackCardButton>
         </Modal>
       )}
-      <AirpackCardImage src='/static/airpack_sample.png' />
+      <AirpackCardImage src="/static/airpack_sample.png" />
       <AirpackCardContent>
         <AirpackCardTitle>{name}</AirpackCardTitle>
         <AirpackCardDescription>{description}</AirpackCardDescription>
