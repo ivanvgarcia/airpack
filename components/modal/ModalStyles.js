@@ -27,10 +27,13 @@ const ModalBody = styled.div`
   background-color: #fefefe;
   margin: auto;
   border: 1px solid #888;
-  width: 30%;
+  width: 70%;
   border-radius: 10px;
   box-shadow: ${({ theme }) => `0 2px 4px ${theme.colors.black}`};
   animation: ${scaleUp} 0.3s linear forwards;
+  @media (min-width: 768px) {
+    width: 30%;
+  }
 `;
 
 const CloseButton = styled.span`
