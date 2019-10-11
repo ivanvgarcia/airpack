@@ -2,18 +2,30 @@ import React from 'react';
 import Link from 'next/link';
 import { bool } from 'prop-types';
 import { StyledMenu } from './Menu.styled';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Logo from '../../static/svgs/logo.svg';
+import { logout } from '../../redux/actions/auth';
 
 const Menu = ({ open, handleLinkClick }) => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const loading = useSelector(state => state.auth.loading);
   const user = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    handleLinkClick();
+  };
 
   const authLinks = () => (
-    <li>
-      <button onClick={handleLinkClick}>{user.name}</button>
-    </li>
+    <>
+      <li>
+        <button onClick={handleLinkClick}>{user.name}</button>
+      </li>
+      <li>
+        <button onClick={handleLogout}>Logout</button>
+      </li>
+    </>
   );
 
   const guestLinks = () => (

@@ -9,27 +9,29 @@ import {
   LOGIN_FAIL,
   LOGOUT
 } from './types';
-
+import cookie from 'js-cookie';
 import setAuthToken from '../../utils/setAuthToken';
 
 export const loadUser = () => async dispatch => {
-  // if (localStorage.token) {
-  //   setAuthToken(localStorage.token);
-  // }
+  const token = cookie.get('token');
+
+  if (token) {
+    setAuthToken(token);
+  }
 
   try {
     const res = await airpackAPI.get('/users/current', {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       }
     });
 
     dispatch({
       type: USER_LOADED,
-      payload: res.data.user
+      payload: res.data
     });
   } catch (err) {
-    console.log(err);
     dispatch({
       type: AUTH_ERROR
     });

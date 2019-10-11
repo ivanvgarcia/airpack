@@ -8,6 +8,8 @@ import {
   LOGOUT,
   ACCOUNT_DELETED
 } from '../actions/types';
+import nextCookie from 'next-cookies';
+import cookie from 'js-cookie';
 
 const initialState = {
   //   token: localStorage.getItem('token'),
@@ -23,14 +25,14 @@ export default function(state = initialState, action) {
     case USER_LOADED:
       return {
         ...state,
-        // token: localStorage.getItem('token'),
+        token: cookie.get('token'),
         isAuthenticated: true,
         loading: false,
         user: payload.data.user
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      // localStorage.setItem('token', payload.token);
+      cookie.set('token', payload.token);
       return {
         ...state,
         token: payload.token,
@@ -43,7 +45,7 @@ export default function(state = initialState, action) {
     case LOGIN_FAIL:
     case LOGOUT:
     case ACCOUNT_DELETED:
-      // localStorage.removeItem('token');
+      cookie.remove('token');
       return {
         ...state,
         token: null,
