@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
 import styled from 'styled-components';
 import Head from 'next/head';
-import Logo from "../static/svgs/logo.svg"
+import LoginIcon from "../static/svgs/login.svg"
 
 const Container = styled.div`
   padding: 0 20px;
@@ -30,7 +30,7 @@ const Form = styled.div`
   background: #fff;
   box-shadow:${({ theme }) => `0 2px 4px ${theme.colors.black}`};
   border-radius: 10px;
-  padding: 4rem 0;
+  padding: 5rem 0 4rem;
   width: 600px;
   max-width: 100%;
   background-color: #ffffff;
@@ -39,16 +39,14 @@ background-attachment: fixed;
 background-size: cover;
 `;
 
-const StyledLogo = styled(Logo) `
+const StyledIcon = styled(LoginIcon) `
   position: absolute;
-  padding: .6rem;
-  border-radius: 10px;
-  background: white;
-  top: -40px;
-  left: -50px;
+  top: 0px;
+  left: 0;
   right: 0;
-  box-shadow:${({ theme }) => `6px 6px 8px ${theme.colors.black}`};
-  transform: rotate(-10deg);
+  margin-left: auto;
+  margin-right: auto;
+  
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     top: -30px;
@@ -71,9 +69,8 @@ const Login = () => {
     <div>
       <Head></Head>
       <Container>
-        <Title>Login</Title>
         <Form>
-          <StyledLogo />
+          <StyledIcon />
           <Formik
             initialValues={{
               email: '',
@@ -144,6 +141,21 @@ const Login = () => {
       </Container>
     </div>
   );
+};
+
+Login.getInitialProps = ({ req, res, reduxStore, ...props }) => {
+  const isServer = !!req;
+  if (isServer) {
+    console.log(reduxStore.getState());
+    
+    // if (!reduxStore.getState().auth.isAuthenticated) {
+    //   console.log('server side');
+    //   res.writeHead(302, { Location: `/` });
+    //   res.end();
+    // }
+  }
+
+  return {};
 };
 
 export default Login;

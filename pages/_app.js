@@ -17,7 +17,7 @@ const theme = {
     grey: '#D2D2D2',
     black: '#4A4A4A'
   },
-  mobile: '576px',
+  mobile: '576px'
 };
 
 const Global = createGlobalStyle`
@@ -39,16 +39,15 @@ const Global = createGlobalStyle`
   nav {
         text-align: center;
     }
-  ul {
+
+  nav > ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  nav > ul {
     padding: 4px 16px;
     list-style: none;
   }
-  li {
+  nav > li {
     display: flex;
     padding: 6px 8px;
   }

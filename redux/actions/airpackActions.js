@@ -2,9 +2,9 @@ import { GET_PACKS, SET_ALERT, REMOVE_ALERT } from './types';
 import { airpackAPI } from '../../config/baseUrl';
 import { setAlert } from './alert';
 
-export const getPacks = () => async dispatch => {
+export const getPacks = (limit = 4) => async dispatch => {
   try {
-    const res = await airpackAPI.get('/packs?limit=4');
+    const res = await airpackAPI.get(`/packs?limit=${limit}`);
     dispatch({
       type: GET_PACKS,
       payload: res.data.data.packs
