@@ -127,7 +127,7 @@ const Packs = () => {
 Packs.getInitialProps = async ({ reduxStore, req }) => {
   const isServer = !!req;
 
-  await reduxStore.dispatch(getPacks());
+  await reduxStore.dispatch(getPacks(20));
 
   return {};
 };
