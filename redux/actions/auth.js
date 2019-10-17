@@ -10,16 +10,19 @@ import {
   LOGOUT
 } from './types';
 import cookie from 'js-cookie';
+import nextCookies from 'next-cookies';
 import setAuthToken from '../../utils/setAuthToken';
 
-export const loadUser = token => async dispatch => {
-  // const token = cookie.get('token');
+export const loadUser = ctx => async dispatch => {
+  let token;
 
-  // if (token) {
-  //   setAuthToken(token);
-  // }
+  if (process.browser) {
+    token = cookie.get('token');
+  } else {
+    token = nextCookies(ctx).token;
+  }
 
-  // console.log(token);
+  console.log(token);
 
   try {
     const res = await airpackAPI.get('/users/current', {
@@ -29,11 +32,13 @@ export const loadUser = token => async dispatch => {
       }
     });
 
+    console.log(res);
     dispatch({
       type: USER_LOADED,
       payload: res.data
     });
   } catch (err) {
+    console.log(err);
     dispatch({
       type: AUTH_ERROR
     });
