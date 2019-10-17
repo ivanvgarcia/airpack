@@ -5,6 +5,8 @@ import { getPacks } from '../redux/actions/airpackActions';
 import { Container, Section, FlexRow } from '../styles/landing';
 
 import AirpackCard from '../components/airpackCard/AirpackCard';
+import nextCookie from 'next-cookies';
+import cookies from 'js-cookie';
 
 const Airpacks = ({ packs, loading }) => {
   useEffect(() => {
@@ -23,9 +25,8 @@ const Airpacks = ({ packs, loading }) => {
       <Section>
         <Container>
           <FlexRow>
-            {packs.map(pack => (
-              <AirpackCard key={pack._id} pack={pack} />
-            ))}
+            {packs &&
+              packs.map(pack => <AirpackCard key={pack._id} pack={pack} />)}
           </FlexRow>
         </Container>
       </Section>
@@ -33,12 +34,16 @@ const Airpacks = ({ packs, loading }) => {
   );
 };
 
-Airpacks.getInitialProps = async ({ reduxStore, req }) => {
-  const isServer = !!req;
+Airpacks.getInitialProps = async ({ reduxStore, ...ctx }) => {
+  let token;
 
-  await reduxStore.dispatch(getPacks());
+  if (ctx) {
+    const { token } = nextCookie(ctx);
 
-  return {};
+    await reduxStore.dispatch(getPacks());
+  }
+
+  return { token };
 };
 
 const mapStateToProps = state => ({

@@ -12,12 +12,14 @@ import {
 import cookie from 'js-cookie';
 import setAuthToken from '../../utils/setAuthToken';
 
-export const loadUser = () => async dispatch => {
-  const token = cookie.get('token');
+export const loadUser = token => async dispatch => {
+  // const token = cookie.get('token');
 
-  if (token) {
-    setAuthToken(token);
-  }
+  // if (token) {
+  //   setAuthToken(token);
+  // }
+
+  // console.log(token);
 
   try {
     const res = await airpackAPI.get('/users/current', {

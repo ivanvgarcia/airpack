@@ -5,9 +5,10 @@ import { setAlert } from './alert';
 export const getPacks = (limit = 4) => async dispatch => {
   try {
     const res = await airpackAPI.get(`/packs?limit=${limit}`);
+
     dispatch({
       type: GET_PACKS,
-      payload: res.data.data.packs
+      payload: res.data.data.data
     });
   } catch (error) {
     dispatch({
