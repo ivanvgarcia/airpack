@@ -29,7 +29,10 @@ const ModalBody = styled.div`
   border: 1px solid #888;
   width: 70%;
   border-radius: 10px;
-  box-shadow: ${({ theme }) => `0 2px 4px ${theme.colors.black}`};
+  box-shadow: ${({ theme }) => ` 0 2 px 4 px $ {
+    theme.colors.black
+  }
+  `};
   animation: ${scaleUp} 0.3s linear forwards;
   @media (min-width: 768px) {
     width: 30%;

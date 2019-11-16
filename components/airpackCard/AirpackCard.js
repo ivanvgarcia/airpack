@@ -20,7 +20,7 @@ const AirpackCard = ({ pack }) => {
     <AirpackCardContainer onClick={() => setOpen()}>
       {open && (
         <Modal open={open} toggle={setOpen} pack={{ ...pack }}>
-          <AirpackCardImage src="/static/airpack_sample.png" />
+          <AirpackCardImage src='/static/airpack_sample.png' />
           <AirpackCardDetails>
             <AirpackCardTitle>{name}</AirpackCardTitle>{' '}
             <AirpackCardDescription>{description}</AirpackCardDescription>
@@ -29,7 +29,7 @@ const AirpackCard = ({ pack }) => {
           <AirpackCardButton>Purchase Pack</AirpackCardButton>
         </Modal>
       )}
-      <AirpackCardImage src="/static/airpack_sample.png" />
+      <AirpackCardImage src='/static/airpack_sample.png' />
       <AirpackCardContent>
         <AirpackCardTitle>{name}</AirpackCardTitle>
         <AirpackCardDescription>{description}</AirpackCardDescription>
