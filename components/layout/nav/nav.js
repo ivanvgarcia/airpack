@@ -23,9 +23,9 @@ const Nav = () => {
   };
 
   const authLinks = () => (
-    <li>
-      <p>{user.name}</p>
-    </li>
+    <Link href="/profile">
+      <a>{user.name}</a>
+    </Link>
   );
 
   const guestLinks = () => (

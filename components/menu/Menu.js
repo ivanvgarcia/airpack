@@ -19,9 +19,9 @@ const Menu = ({ open, handleLinkClick }) => {
 
   const authLinks = () => (
     <>
-      <li>
+      <Link href="/profile" passHref>
         <button onClick={handleLinkClick}>{user.name}</button>
-      </li>
+      </Link>
       <li>
         <button onClick={handleLogout}>Logout</button>
       </li>
