@@ -4,6 +4,7 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
+  UPDATE_USER,
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
@@ -22,8 +23,6 @@ export const loadUser = ctx => async dispatch => {
     token = nextCookies(ctx).token;
   }
 
-  console.log(token);
-
   try {
     const res = await airpackAPI.get('/users/current', {
       headers: {
@@ -32,13 +31,11 @@ export const loadUser = ctx => async dispatch => {
       }
     });
 
-    console.log(res);
     dispatch({
       type: USER_LOADED,
       payload: res.data
     });
   } catch (err) {
-    console.log(err);
     dispatch({
       type: AUTH_ERROR
     });
@@ -111,6 +108,10 @@ export const login = ({ email, password }) => async dispatch => {
       type: LOGIN_FAIL
     });
   }
+};
+
+export const updateUser = payload => async dispatch => {
+  dispatch({ type: UPDATE_USER, payload });
 };
 
 // Logout / Clear Profile

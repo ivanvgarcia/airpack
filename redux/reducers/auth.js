@@ -6,7 +6,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  ACCOUNT_DELETED
+  ACCOUNT_DELETED,
+  UPDATE_USER
 } from '../actions/types';
 import nextCookie from 'next-cookies';
 import cookie from 'js-cookie';
@@ -38,6 +39,13 @@ export default function(state = initialState, action) {
         isAuthenticated: true,
         loading: false,
         user: payload.data.user
+      };
+    case UPDATE_USER:
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+        user: payload
       };
     case REGISTER_FAIL:
     case AUTH_ERROR:
